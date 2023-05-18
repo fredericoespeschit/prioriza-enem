@@ -1,12 +1,14 @@
 .records {
-  width: 100%;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
   user-select: none;
   text-align: left;
 }
 
 .records th{
   height: 50px;
-  background-color: blue;
+  background-color: rgb(123, 227, 71);
   padding-left: 20px;
   font-size: 1.2rem;
 }
@@ -24,5 +26,5 @@
 }
 
 .records tr:hover{
-  background-color: gray;
+  background-color: #FFFFFF;
 }

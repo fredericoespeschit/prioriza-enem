@@ -1,0 +1,98 @@
+.sidebar,
+.info {
+  padding: 15px;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f2eae1;
+}
+
+.logo {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.logo::before {
+  content: "";
+  width: 23px;
+  height: 0px;
+  border: 4px solid #f8d442;
+  transform: rotate(90deg);
+  margin-right: 10px;
+}
+
+/* Inicio: Imagem do perfil, nome e permissão */
+.profile {
+  width: 141px;
+  height: 214px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly
+}
+
+.profile img {
+  width: 128px;
+  height: 128px;
+  background-color: gray;
+  border-radius: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.name-profile {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 21px;
+  color: #000000;
+}
+
+.permission-profile {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #feaf00;
+}
+
+
+/* Inicio: navlinks */
+.navlinks {
+  width: 193px;
+  height: 486px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navlinks ul li {
+  width: 193px;
+  height: 43px;
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: center;
+}
+
+.active {
+  /* width: 193px;
+  height: 43px; */
+  background-color: #FEAF00;
+  border-radius: 4px;
+}
+
+.navlinks ul li span {
+  margin-left: 10px;
+  align-items: flex-start;
+}
