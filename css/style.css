@@ -28,3 +28,8 @@ a {
   justify-items: stretch;
   align-items: stretch;
 }
+
+.sidebar,
+.info {
+  padding: 20px;
+}
