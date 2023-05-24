@@ -26,7 +26,8 @@
               <li><img src="./image/icons/home-lg-alt-1.svg" alt="" /> <span>Home</span></li>
               <li><img src="./image/icons/bookmark-1.svg" alt="" /><span>Course</span></li>
               <li class="active"><img src="./image/icons/graduation-cap-1.svg" alt="" /><span>Students</span></li>
-              <li><img src="./image/icons/bookmark-1.svg" alt="" /><span>Payment</span></li>
+              <li><img src="./image/icons/usd-square-1.svg" alt="" /><span>Payment</span></li>
+              <li><img src="./image/icons/sliders-v-square-1.svg" alt="" /><span>Settings</span></li>
             </ul>
           </nav>
           <div>
@@ -55,7 +56,7 @@
             </div>
             <div class="section-add-new-question-ul-li-img-button">
               <li><img src="./image/icons/sort-1.svg" alt="" /></li>
-              <li><button type="button">Add new question</button></li>
+              <li><button type="button" id="register-question">Add new question</button></li>
             </div>
           </ul>
         </div>
@@ -84,10 +85,30 @@
               </tr>
             </tbody>
           </table>
+
+          <div class="modal-add-new-question" id="modal-add-new-question">
+            <div class="modal-content">
+              <header class="modal-header">
+                <h2>New questions</h2>
+                <span class="modal-close" id="modal-close">&#10006;</span>
+              </header>
+              <form action="" class="form-modal-add-new-question">
+                <input type="text" class="modal-field " placeholder="Questions">
+                <input type="text" class="modal-field" placeholder="Level">
+                <input type="text" class="modal-field" placeholder="Matter">
+                <input type="text" class="modal-field" placeholder="Content">
+              </form>
+              <footer class="footer-modal-add-new-question">
+                <button type="button" class="button">Save</button>
+                <button type="button" class="button button-cancel">Cancel</button>
+              </footer>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <script src="./js/script.js"></script>
 </body>
 
 </html>
