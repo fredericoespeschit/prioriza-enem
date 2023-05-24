@@ -1,7 +1,7 @@
-{/* <div class="modal-add-new-question"> */}
+{/* <div class="modal-add-new-question"> */ }
 
 const openModal = () => document.getElementById('modal-add-new-question').classList.add('active');
-const closeModal = () =>  document.getElementById('modal-add-new-question').classList.remove('active');
+const closeModal = () => document.getElementById('modal-add-new-question').classList.remove('active');
 
 const tempQuestion = {
   question: "Quanto é 2 + 2?",
@@ -10,19 +10,27 @@ const tempQuestion = {
   content: "Adição"
 }
 
-const getLocaStorage = () => JSON.parse(localStorage.getItem('dataBase')) ?? [];
+const getLocalStorage = () => JSON.parse(localStorage.getItem('dataBase')) ?? [];
 
-const setLocaStorage = (dataBase) => localStorage.setItem('dataBase', JSON.stringify(dataBase));
+const setLocalStorage = function (dataBase) {
+  localStorage.setItem('dataBase', JSON.stringify(dataBase));
+}
 
 //CRUD
+const updateItem = (index, questions) => {
+  const dataBase = readItem();
+  dataBase[index] = questions;
+  setLocalStorage(dataBase);
+}
+
 const readItem = () => {
-  getLocaStorage();
+  getLocalStorage();
 }
 
 const createItem = (questions) => {
-  const dataBase = getLocaStorage()
+  const dataBase = getLocalStorage()
   dataBase.push(questions);
-  setLocaStorage(dataBase);
+  setLocalStorage(dataBase);
 }
 
 
