@@ -62,7 +62,7 @@
         </div>
         <div class="dividing-line"></div>
         <div class="main">
-          <table>
+          <table id="table">
             <thead class="thead">
               <tr>
                 <th>Questions</th>
@@ -73,7 +73,7 @@
               </tr>
             </thead>
             <tbody class="tbody">
-              <tr>
+              <!-- <tr>
                 <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
                 <td>Easy Level</td>
                 <td>Mathematics</td>
@@ -82,7 +82,7 @@
                   <a href="http://"><img src="./image/icons/pen.svg" alt="" /></a>
                   <a href="http://"> <img src="./image/icons/trash.svg" alt="" /></a>
                 </td>
-              </tr>
+              </tr> -->
             </tbody>
           </table>
 
@@ -92,15 +92,15 @@
                 <h2>New questions</h2>
                 <span class="modal-close" id="modal-close">&#10006;</span>
               </header>
-              <form action="" class="form-modal-add-new-question">
-                <input type="text" class="modal-field " placeholder="Questions">
-                <input type="text" class="modal-field" placeholder="Level">
-                <input type="text" class="modal-field" placeholder="Matter">
-                <input type="text" class="modal-field" placeholder="Content">
+              <form action="" class="form-modal-add-new-question" id="form-modal-add-new-question">
+                <input type="text" class="modal-field" placeholder="Questions" required id="question">
+                <input type="text" class="modal-field" placeholder="Level" required id="level">
+                <input type="text" class="modal-field" placeholder="Matter" required id="matter">
+                <input type="text" class="modal-field" placeholder="Content" required id="content">
               </form>
               <footer class="footer-modal-add-new-question">
-                <button type="button" class="button">Save</button>
-                <button type="button" class="button button-cancel">Cancel</button>
+                <button type="button" class="button" id="save-new-question">Save</button>
+                <button type="button" class="button button-cancel" id="cancel-new-question">Cancel</button>
               </footer>
             </div>
           </div>
