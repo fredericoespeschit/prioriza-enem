@@ -22,7 +22,7 @@
 }
 
 .header-ul-li-search-notification #search {
-  background-image: url('./image/icons/search-1.svg');
+  /* background-image: url('./image/icons/search-1.svg'); */
   background-repeat: no-repeat;
   background-position: right;
   background-size: 1.3em;

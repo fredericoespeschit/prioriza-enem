@@ -1,94 +1,118 @@
-{/* <div class="modal-add-new-question"> */ }
-
-const openModal = () => document.getElementById('modal-add-new-question').classList.add('active');
+const openModal = () => document.getElementById("modal-add-new-question").classList.add("active");
 const closeModal = () => {
-  document.getElementById('modal-add-new-question').classList.remove('active');
+  document.getElementById("modal-add-new-question").classList.remove("active");
   clearFields();
-}
+};
 
-const getLocalStorage = () => JSON.parse(localStorage.getItem('dataBase')) ?? [];
+const getLocalStorage = () => JSON.parse(localStorage.getItem("dataBase")) ?? [];
 
 const setLocalStorage = (dataBase) => {
-  localStorage.setItem('dataBase', JSON.stringify(dataBase));
-}
-
+  localStorage.setItem("dataBase", JSON.stringify(dataBase));
+};
 
 //CRUD
 const deleteItem = (index) => {
   const dataBase = getLocalStorage();
   dataBase.splice(index, 1);
   setLocalStorage(dataBase);
-}
+};
 
 const updateItem = (index, questions) => {
   const dataBase = getLocalStorage();
   dataBase[index] = questions;
   setLocalStorage(dataBase);
-}
+};
 
 const readItem = () => {
   return getLocalStorage();
-}
+};
 
 const createItem = (questions) => {
-  const dataBase = getLocalStorage()
+  const dataBase = getLocalStorage();
   dataBase.push(questions);
   setLocalStorage(dataBase);
-}
+};
 
 const isValidFields = () => {
-  return document.getElementById('form-modal-add-new-question').reportValidity()
-}
+  return document.getElementById("form-modal-add-new-question").reportValidity();
+};
 
 //Layout
 const clearFields = () => {
-  const fields = document.querySelectorAll('.modal-field');
-  fields.forEach(field => field.value = "");
-}
+  const fields = document.querySelectorAll(".modal-field");
+  fields.forEach((field) => (field.value = ""));
+};
 const saveNewQuestion = () => {
   if (isValidFields()) {
     const newQuestao = {
-      question: document.getElementById('question').value,
-      level: document.getElementById('level').value,
-      matter: document.getElementById('matter').value,
-      content: document.getElementById('content').value,
-    }
+      question: document.getElementById("question").value,
+      level: document.getElementById("level").value,
+      matter: document.getElementById("matter").value,
+      content: document.getElementById("content").value,
+    };
     createItem(newQuestao);
     updateTable();
     closeModal();
   }
+};
+
+const handleEdit = (event) => {
+  event.preventDefault();
+  const dataAction = event.target.getAttribute('data-action');
+  if (dataAction && dataAction.startsWith('edit-')) {
+    const index = dataAction.split('-')[1];
+    console.log(index);
+  }
+};
+
+const handleDelete = (event) => {
+  event.preventDefault();
+  const dataAction = event.target.getAttribute('data-action');
+  if (dataAction && dataAction.startsWith('delete-')) {
+    const index = dataAction.split('-')[1];
+    console.log(index);
+  }
 }
-const createRow = (question) => {
-  const newRow = document.createElement('tr');
+
+const createRow = (question, index) => {
+  const newRow = document.createElement("tr");
   newRow.innerHTML = `
   <td>${question.question}</td>
   <td>${question.level}</td>
   <td>${question.matter}</td>
   <td>${question.content}</td>
   <td class="button-edit-delete">
-    <a href="http://"><img src="./image/icons/pen.svg" alt="" /></a>
-    <a href="http://"> <img src="./image/icons/trash.svg" alt="" /></a>
+    <a href="http://"><img src="./image/icons/pen.svg" alt="" data-action="edit-${index}" /></a>
+    <a href="http://"> <img src="./image/icons/trash.svg" alt="" data-action="delete-${index}" /></a>
   </td>
 `;
+  const editButton = newRow.querySelector(`[data-action="edit-${index}"]`);
+  const deleteButton = newRow.querySelector(`[data-action="delete-${index}"]`);
 
-document.querySelector('#table>tbody').appendChild(newRow);
-}
+  editButton.addEventListener("click", handleEdit);
+  deleteButton.addEventListener("click", handleDelete);
+
+  document.querySelector("#table>tbody").appendChild(newRow);
+};
 
 const clearTable = () => {
-  const rows = document.querySelectorAll('#table>tbody tr');
-  rows.forEach(row => row.parentNode.removeChild(row));
-}
+  const rows = document.querySelectorAll("#table>tbody tr");
+  rows.forEach((row) => row.parentNode.removeChild(row));
+};
 
 const updateTable = () => {
   const dataBase = readItem();
   clearTable();
   dataBase.forEach(createRow);
-}
+};
 
 updateTable();
 
-// Events
-document.getElementById('register-question').addEventListener('click', openModal);
-document.getElementById('modal-close').addEventListener('click', closeModal);
 
-document.getElementById('save-new-question').addEventListener('click', saveNewQuestion);
+
+// Events
+document.getElementById("register-question").addEventListener("click", openModal);
+document.getElementById("modal-close").addEventListener("click", closeModal);
+
+document.getElementById("save-new-question").addEventListener("click", saveNewQuestion);
+// document.querySelector("#table>tbody").addEventListener("click", editDelete);
