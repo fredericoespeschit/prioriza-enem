@@ -50,18 +50,45 @@ const saveNewQuestion = () => {
       matter: document.getElementById("matter").value,
       content: document.getElementById("content").value,
     };
-    createItem(newQuestao);
-    updateTable();
-    closeModal();
+
+    const index = document.getElementById('question').dataset.index;
+    if (index == 'new') {
+      createItem(newQuestao);
+      updateTable();
+      closeModal();
+    } else {
+      updateItem(index, question);
+      updateTable();
+      closeModal();
+    }
+
+
   }
 };
+
+const fillFields = (question) => {
+  document.getElementById('question').value = question.question;
+  document.getElementById('level').value = question.level;
+  document.getElementById('matter').value = question.matter;
+  document.getElementById('content').value = question.content;
+  document.getElementById('question').dataset.index = question.index;
+
+}
+
+const modalEdit = (index) => {
+  const question = readItem()[index];
+  question.index = index;
+  fillFields(question);
+  openModal();
+}
 
 const handleEdit = (event) => {
   event.preventDefault();
   const dataAction = event.target.getAttribute('data-action');
   if (dataAction && dataAction.startsWith('edit-')) {
     const index = dataAction.split('-')[1];
-    console.log(index);
+    // console.log(index);
+    modalEdit(index);
   }
 };
 
@@ -70,7 +97,15 @@ const handleDelete = (event) => {
   const dataAction = event.target.getAttribute('data-action');
   if (dataAction && dataAction.startsWith('delete-')) {
     const index = dataAction.split('-')[1];
-    console.log(index);
+
+    const quest = readItem()[index];
+    const response = confirm(`Deseja realmente excluir a questão de ${quest.matter}`)
+    if (response) {
+      deleteItem(index);
+      updateTable();
+    }
+
+    // console.log(index);
   }
 }
 
