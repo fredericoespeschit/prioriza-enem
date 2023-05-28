@@ -57,7 +57,7 @@ const saveNewQuestion = () => {
             updateTable();
             closeModal();
         } else {
-            updateItem(index, question);
+            updateItem(index, newQuestao);
             updateTable();
             closeModal();
         }
