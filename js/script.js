@@ -145,4 +145,4 @@ document.getElementById("register-question").addEventListener("click", openModal
 document.getElementById("modal-close").addEventListener("click", closeModal);
 
 document.getElementById("save-new-question").addEventListener("click", saveNewQuestion);
-// document.querySelector("#table>tbody").addEventListener("click", editDelete);
+
