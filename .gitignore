@@ -1,0 +1,7 @@
+# Angular generated files
+/dist/
+/node_modules/
+
+# IDE/Editor files
+/.idea/
+/.vscode/
