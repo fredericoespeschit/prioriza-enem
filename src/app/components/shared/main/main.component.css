@@ -1,0 +1,113 @@
+.header ul {
+  display: flex;
+  height: 60px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-ul-li-search-notification input {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #c4c4c4;
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  width: 212px;
+  height: 37px;
+  margin-right: 12px;
+}
+
+.header-ul-li-search-notification #search {
+  /* background-image: url('./image/icons/search-1.svg'); */
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 1.3em;
+  padding-left: 1.3em;
+}
+
+.header-ul-li-search-notification li img {
+  margin-right: 15px;
+}
+
+.section-add-new-question ul {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section-add-new-question ul:first-child {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 27px;
+}
+
+.section-add-new-question ul li button {
+  width: 199px;
+  height: 44px;
+  background: #feaf00;
+  border-radius: 4px;
+  border-style: none;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+}
+
+.section-add-new-question ul li button:first-child {
+  margin-left: 12px;
+}
+
+.header-ul-li-search-notification,
+.section-add-new-question-ul-li-img-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dividing-line {
+  margin: 10px 0;
+  border: 1px solid #e5e5e5;
+}
+
+/* Main */
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.thead {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+  color: #acacac;
+}
+
+.button-edit-delete {
+  display: flex;
+  height: 85px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#table {
+  table-layout: fixed;
+  
+}
+
+th, td {
+  text-align: left;
+}
+.tbody {
+  height: 85px;
+  background: #ffffff;
+  border-radius: 8px;
+}

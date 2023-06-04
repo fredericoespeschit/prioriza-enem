@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat";
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+.container {
+  width: 100%;
+  height: 100vh;
+}
+.content {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 0.6fr 3fr;
+  justify-items: stretch;
+  align-items: stretch;
+}
+
+.sidebar,
+.info {
+  padding: 20px;
+}
