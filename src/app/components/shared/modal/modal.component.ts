@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./modal.component.css']
 })
 export class ModalComponent {
-
+  openModal = () => document.getElementById("modal-add-new-question").classList.add("active");
+  closeModal = () => {
+  document.getElementById("modal-add-new-question").classList.remove("active");
+  document.getElementById("register-question").addEventListener("click", openModal);
+  document.getElementById("modal-close").addEventListener("click", closeModal);
+  };
 }
