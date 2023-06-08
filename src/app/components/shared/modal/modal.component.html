@@ -5,15 +5,15 @@
           <h2>New questions</h2>
           <span class="modal-close" id="modal-close">&#10006;</span>
       </header>
-      <form action="" class="form-modal-add-new-question" id="form-modal-add-new-question">
-          <input type="text" data-index="new" class="modal-field" placeholder="Questions" required id="question" />
+      <div action="" class="form-modal-add-new-question" id="form-modal-add-new-question">
+          <input [(ngModel)]="question.statement"  type="text" data-index="new" class="modal-field" placeholder="Questions" required id="question" />
           <input type="text" class="modal-field" placeholder="Level" required id="level" />
-          <input type="text" class="modal-field" placeholder="Matter" required id="matter" />
-          <input type="text" class="modal-field" placeholder="Content" required id="content" />
-      </form>
+          <input [(ngModel)]="question.course" type="text" class="modal-field" placeholder="Matter" required id="matter" />
+          <input [(ngModel)]="question.topic" type="text" class="modal-field" placeholder="Content" required id="content" />
+      </div>
       <footer class="footer-modal-add-new-question">
-          <button type="button" class="button" id="save-new-question">Save</button>
-          <button type="button" class="button button-cancel" id="cancel-new-question">Cancel</button>
+        <button type="button" class="button" id="save-new-question" (click)="saveQuestion()">Save</button>
+        <button type="button" class="button button-cancel" id="cancel-new-question" (click)="closeModal()">Cancel</button>
       </footer>
   </div>
 </div>

@@ -1,6 +1,7 @@
 # Angular generated files
 /dist/
 /node_modules/
+/.angular/
 
 # IDE/Editor files
 /.idea/

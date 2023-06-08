@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { Question } from 'src/app/models/question.model';
 
 @Component({
   selector: 'app-modal',
@@ -6,10 +7,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./modal.component.css']
 })
 export class ModalComponent {
-  openModal = () => document.getElementById("modal-add-new-question").classList.add("active");
-  closeModal = () => {
-  document.getElementById("modal-add-new-question").classList.remove("active");
-  document.getElementById("register-question").addEventListener("click", openModal);
-  document.getElementById("modal-close").addEventListener("click", closeModal);
-  };
+
+  @Output()
+  public onClose: EventEmitter<any> = new EventEmitter();
+
+  @Output()
+  public onSave: EventEmitter<Question> = new EventEmitter();
+
+  public question: Question = {};
+
+  public closeModal():void {
+    this.onClose.emit();
+  }
+
+  public saveQuestion(): void {
+    this.onSave.emit(this.question);
+  }
+
 }

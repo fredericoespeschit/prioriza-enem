@@ -19,7 +19,7 @@
           </div>
           <div class="section-add-new-question-ul-li-img-button">
               <li><img src="./image/icons/sort-1.svg" alt="" /></li>
-              <li><button type="button" id="register-question">Add new question</button></li>
+              <li><button type="button" id="register-question" (click)="openModal()">Add new question</button></li>
           </div>
       </ul>
   </section>
@@ -35,9 +35,19 @@
                   <th></th>
               </tr>
           </thead>
-          <tbody class="tbody"></tbody>
+          <tbody class="tbody">
+            <tr *ngFor="let question of questions">
+                <td> {{question.statement}} </td>
+                <td> {{question.level}} </td>
+                <td> {{question.course}} </td>
+                <td> {{question.topic}} </td>
+            </tr>
+          </tbody>
       </table>
 
-      <app-modal></app-modal>
+      <app-modal *ngIf="isModalOpen" (onClose)="closeModal()" (onSave)="addQuestionToList($event)">
+        <div> Titulo</div>
+
+      </app-modal>
   </section>
 </main>
